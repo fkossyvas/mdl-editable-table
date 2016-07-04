@@ -1,0 +1,6 @@
+{
+  "name": "Mdl-editable-table",
+  "tagline": "Material Design Lite editable table",
+  "body": "# mdl-editable-table\r\nMaterial Design Lite editable table\r\n\r\n  Based on HTML5 Editable Table (https://codepen.io/ashblue/pen/mCtuA) by @ashblue \r\n\r\n  It doesn't use a table id (as the original source) but a css selector, so more tables can be defined in the same page. \r\n  There are no move up/down buttons because it's more like an spreadsheet.\r\n  \r\n  ![screenshot](https://github.com/fkossyvas/mdl-editable-table/blob/master/screenshot.png)\r\n  \r\n  [demo](https://fkossyvas.github.io/mdl-editable-table/)\r\n  \r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
