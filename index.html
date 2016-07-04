@@ -8,6 +8,19 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+	<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<style>
+		.table-remove:hover {
+		  color: #f00;
+		  cursor: pointer;
+		}
+		.table-add:hover {
+		  cursor: pointer;
+		  color: #0b0;
+		}
+	</style>
   </head>
   <body>
     <section class="page-header">
@@ -19,19 +32,49 @@
     </section>
 
     <section class="main-content">
-      <h1>
-<a id="mdl-editable-table" class="anchor" href="#mdl-editable-table" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>mdl-editable-table</h1>
+	<div class="mdl-grid">
+		<div class="mdl-layout-spacer"></div>
+			<div class="mdl-cell mdl-cell--4-col">
+				<table class="mdl-data-table  mdl-shadow--2dp">
+					<thead>
+						<tr class="mdl-js-button mdl-button--raised mdl-button--accent">
+							<th style="color:white;text-align: center;" colspan="100%">Table description</th>
+						</tr>
+						<tr class="mdl-js-button mdl-button--raised mdl-button--colored">
+							<th style="color:white;text-align: center;">Column 1</th>
+							<th style="color:white;text-align: center;">Column 2</th>
+							<th style="color:white;text-align: center;"><i style="vertical-align: bottom;" class="table-add material-icons md-24"> &#xe03b;</i></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><div contentEditable style="width: 100%; height: 100%;">Cell 1</div></td>
+							<td><div contentEditable style="width: 100%; height: 100%;">Cell 2</div></td>
+							<td><i style="vertical-align: bottom;" class="table-remove material-icons md-24">&#xe15d;</i></td>
+						</tr>
+						<!-- This is our clonable table line -->
+						<tr class="hide" style="display:none;">
+							<td><div contentEditable style="width: 100%; height: 100%;">Cell 1</div></td>
+							<td><div contentEditable style="width: 100%; height: 100%;">Cell 2</div></td>
+							<td><i style="vertical-align: bottom;" class="table-remove material-icons md-24">&#xe15d;</i></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		<div class="mdl-layout-spacer"></div>
+	 </div>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
+	<script>
+	$('.table-add').click(function () {
+		var $clone = $(this).closest('table').find('tr.hide').clone(true).removeClass('hide').toggle();
+		$(this).closest('table').append($clone);
+	});
+	$('.table-remove').click(function () {
+		$(this).parents('tr').detach();
+	});
+	</script>
 
-<p>Material Design Lite editable table</p>
-
-<p>Based on HTML5 Editable Table (<a href="https://codepen.io/ashblue/pen/mCtuA">https://codepen.io/ashblue/pen/mCtuA</a>) by <a href="https://github.com/ashblue" class="user-mention">@ashblue</a> </p>
-
-<p>It doesn't use a table id (as the original source) but a css selector, so more tables can be defined in the same page. 
-  There are no move up/down buttons because it's more like an spreadsheet.</p>
-
-<p><img src="https://raw.githubusercontent.com/fkossyvas/mdl-editable-table/master/screenshot.png" alt="screenshot"></p>
-
-<p><a href="https://fkossyvas.github.io/mdl-editable-table/">demo</a></p>
+	
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/fkossyvas/mdl-editable-table">Mdl-editable-table</a> is maintained by <a href="https://github.com/fkossyvas">fkossyvas</a>.</span>
